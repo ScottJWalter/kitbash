@@ -293,6 +293,11 @@ GITHUB_TOKEN=ghp_… PORT=3000 npm run start:http    # → http://localhost:3000
 Deploy it anywhere that runs Node 18+ (Render, Railway, Fly.io, a VPS) with build command
 `npm ci` and start command `npm run start:http`.
 
+- **Docker Compose:** from the repository root, run `docker compose up --build -d`.
+  The MCP endpoint is available at `http://localhost:3000/mcp`. Set `GITHUB_TOKEN` in
+  your shell before starting Compose to authenticate GitHub API requests, or run without
+  it and use the lower unauthenticated rate limit. Stop the service with
+  `docker compose down`.
 - **Stateless:** a fresh server per request. Nothing from one caller reaches the next.
 - **Bounded:** at most 12 components and 5 repos per component, so no single caller can
   drain the shared token.

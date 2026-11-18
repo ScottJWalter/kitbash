@@ -1,0 +1,9 @@
+services:
+  kitbash:
+    build: .
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      PORT: "3000"
+      GITHUB_TOKEN: ${GITHUB_TOKEN:-}
